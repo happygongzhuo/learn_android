@@ -19,6 +19,7 @@
 
 
         <activity android:name=".ui.activity.Animation.TweenAnimation"/>
+        <activity android:name=".ui.activity.Animation.TweenAnimationLoadFile"/>
     </application>
 
 </manifest>

@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
     private void initData() {
         mMapActivity.clear();
         mMapActivity.put("TweenAnimation", "com.miracle.learn_android.ui.activity.Animation.TweenAnimation");
+        mMapActivity.put("TweenAnimationLoadFile", "com.miracle.learn_android.ui.activity.Animation.TweenAnimationLoadFile");
 
         Iterator it = mMapActivity.keySet().iterator();
         while (it.hasNext()) {

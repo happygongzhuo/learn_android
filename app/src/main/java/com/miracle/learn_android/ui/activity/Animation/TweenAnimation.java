@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.miracle.learn_android.R;
+import com.miracle.learn_android.ui.views.animation.CustomerAnimation;
 
 /**
  * Created by gongzhuo on 15/12/15.
@@ -23,19 +25,18 @@ public class TweenAnimation extends Activity implements View.OnClickListener {
     private Button mBtnRotateAnim;
     private Button mBtnScaleAnim;
     private Button mBtnTranslateAnim;
+    private Button mBtnCustomerAnim;
 
     private ImageView mIvAlpha;
     private ImageView mIvRotate;
     private ImageView mIvScale;
     private ImageView mIvTranslate;
+    private ImageView mIvCustomer;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("vincent","TweenAnimation:=>"+this.getClass().getName());
-        Log.i("vincent","TweenAnimation:=>"+this.getLocalClassName());
-        Log.i("vincent", "TweenAnimation:=>" + this.getClass().getSimpleName());
-        Log.i("vincent", "TweenAnimation:=>" + this.getClass().getCanonicalName());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_tween_animation);
         initView();
@@ -47,16 +48,19 @@ public class TweenAnimation extends Activity implements View.OnClickListener {
         mBtnRotateAnim = (Button)findViewById(R.id.btn_rotate_animation);
         mBtnScaleAnim = (Button)findViewById(R.id.btn_scale_animation);
         mBtnTranslateAnim = (Button)findViewById(R.id.btn_translate_animation);
+        mBtnCustomerAnim = (Button) findViewById(R.id.btn_customer_animation);
 
         mIvAlpha = (ImageView)findViewById(R.id.iv_alpha);
         mIvRotate = (ImageView)findViewById(R.id.iv_rotate);
         mIvScale = (ImageView)findViewById(R.id.iv_scale);
         mIvTranslate = (ImageView)findViewById(R.id.iv_translate);
+        mIvCustomer = (ImageView)findViewById(R.id.iv_customer);
 
         mBtnAlphaAnim.setOnClickListener(this);
         mBtnRotateAnim.setOnClickListener(this);
         mBtnScaleAnim.setOnClickListener(this);
         mBtnTranslateAnim.setOnClickListener(this);
+        mBtnCustomerAnim.setOnClickListener(this);
     }
 
 
@@ -100,10 +104,19 @@ public class TweenAnimation extends Activity implements View.OnClickListener {
                 mIvScale.startAnimation(scaleAnimation);
                 break;
             case R.id.btn_translate_animation:
+                mIvTranslate.clearAnimation();
                 Animation translateAnimation = new TranslateAnimation(0f,100f,0f,100f);
                 translateAnimation.setDuration(2000);
                 mIvTranslate.startAnimation(translateAnimation);
                 break;
+            case R.id.btn_customer_animation:
+                mIvCustomer.clearAnimation();
+                Animation customerAnimation = new CustomerAnimation(5,50);
+                customerAnimation.setFillBefore(true);
+                customerAnimation.setInterpolator(new LinearInterpolator());
+                customerAnimation.setDuration(2000);
+                mIvCustomer.setAnimation(customerAnimation);
+                customerAnimation.start();
         }
     }
 }
