@@ -20,6 +20,12 @@
 
         <activity android:name=".ui.activity.Animation.TweenAnimation"/>
         <activity android:name=".ui.activity.Animation.TweenAnimationLoadFile"/>
+
+
+        <activity android:name=".ui.activity.Dialog.TestDialog1"/>
+
+
+
     </application>
 
 </manifest>

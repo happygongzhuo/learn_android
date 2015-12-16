@@ -38,6 +38,8 @@ public class MainActivity extends Activity {
         mMapActivity.put("TweenAnimation", "com.miracle.learn_android.ui.activity.Animation.TweenAnimation");
         mMapActivity.put("TweenAnimationLoadFile", "com.miracle.learn_android.ui.activity.Animation.TweenAnimationLoadFile");
 
+        mMapActivity.put("TestDialog1", "com.miracle.learn_android.ui.activity.Dialog.TestDialog1");
+
         Iterator it = mMapActivity.keySet().iterator();
         while (it.hasNext()) {
             String key = it.next().toString();
